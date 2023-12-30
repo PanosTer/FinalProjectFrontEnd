@@ -1,0 +1,28 @@
+<h1>All Posts</h1>
+<app-crud-post-search
+(postFound)="onPostFound($event)"
+></app-crud-post-search>
+<div id="content">
+  <ul *ngIf="posts && !foundPost">
+    <li *ngFor="let post of posts">
+      <a routerLink="">{{ post.postTitle }}</a>
+      <p><img class="responsive" [src]="post.photoURL" /></p>
+      <p>{{ post.postText}}</p>
+      <p><strong>Created Date: </strong>{{ post.createdAt}}</p>
+      <p><strong>Created By: </strong>{{ post.username}}</p>
+      <p *ngIf="isAdmin$" mat-cell>
+        <button (click)="onDeletePost(post._id)" class="btn btn-delete">Delete</button>
+      </p>
+    </li>
+  </ul>
+
+  <ul *ngIf="foundPost">
+    <li *ngFor="let post of foundPost">
+      <a routerLink="">{{ post.postTitle }}</a>
+      <p><img class="responsive" [src]="post.photoURL" /></p>
+      <p>{{ post.postText}}</p>
+      <p><strong>Created Date: </strong>{{ post.createdAt}}</p>
+      <p><strong>Created By: </strong>{{ post.username}}</p>
+    </li>
+  </ul>
+</div>

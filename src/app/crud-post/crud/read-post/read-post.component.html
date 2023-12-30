@@ -1,0 +1,34 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> POST </mat-card-title>
+    <mat-card-subtitle> Read Post </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="fx-layout-column fx-gap--16px">
+      <app-crud-post-search
+        (postFound)="onPostFound($event)"
+      ></app-crud-post-search>
+
+      <mat-card class="example-card" *ngIf="foundPost">
+        <mat-card-header>
+          <div
+            mat-card-avatar
+            [ngStyle]="{
+              'background-image': 'url(' + foundPost.photoURL + ')',
+              'background-size': 'cover'
+            }"
+          ></div>
+          <mat-card-title
+            >{{ foundPost.postTitle }}</mat-card-title
+          >
+          <mat-card-subtitle>{{ foundPost.postTitle }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Text: {{ foundPost.postText }}</p>
+          <p>User: {{ foundPost.userId }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-card-content>
+</mat-card>

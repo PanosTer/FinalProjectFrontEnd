@@ -1,0 +1,16 @@
+<div class="fx-layout-column fx-gap--16px" style="max-width: 200px">
+  <form [formGroup]="form" class="fx-layout-column">
+    <mat-form-field>
+      <mat-label>Search for Post Title</mat-label>
+      <input matInput type="text" formControlName="postTitle" />
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="onSearch()">
+      Search
+    </button>
+  </form>
+  <mat-card *ngIf="form.controls.postTitle.touched && !foundPost" class="error">
+    <mat-card-content class="fx-flex-align--center"
+      >Post not found!</mat-card-content
+    >
+  </mat-card>
+</div>

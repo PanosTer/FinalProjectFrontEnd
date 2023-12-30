@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> CRUD demo </mat-card-title>
+    <mat-card-subtitle> Update user </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="fx-layout-column fx-gap--16px">
+      <app-crud-user-form
+        *ngIf="userFound"
+        [title]="'Update User'"
+        [personInput]="userFound"
+        (person)="onUpdate($event)"
+      ></app-crud-user-form>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,20 @@
+table {
+  box-shadow: none;
+}
+
+.btn{
+  height: 30px;
+  width: auto;;
+  border: none;
+  border-radius: 20%;
+  margin: 5px;
+}
+
+.btn-delete{
+  background-color: coral;
+}
+
+.btn-update{
+  background-color: blue;
+  color: white;
+}

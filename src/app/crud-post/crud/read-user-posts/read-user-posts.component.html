@@ -1,0 +1,48 @@
+<h1>User Posts</h1>
+<app-crud-post-search
+(postFound)="onPostFound($event)"
+></app-crud-post-search>
+<div id="content">
+  <ul *ngIf="posts && !foundUsersPosts">
+    <li *ngFor="let post of posts">
+      <a routerLink="">{{ post.postTitle }}</a>
+      <p><img class="responsive" [src]="post.photoURL" /></p>
+      <p>{{ post.postText}}</p>
+      <p><strong>Created Date: </strong>{{ post.createdAt}}</p>
+      <p><strong>Created By: </strong>{{ post.username}}</p>
+      
+        <p mat-cell>
+          <button (click)="onDeletePost(post._id)" class="btn btn-delete">Delete</button><button (click)="onUpdatePost(post.postTitle, post._id)" class="btn btn-update">Update</button>
+        </p>
+        <app-crud-post-form
+        *ngIf="foundPost && post.postTitle === foundPost.postTitle"
+        [title]="'Update Post'"
+        [postInput]="foundPost"
+        (post)="onUpdate($event)"
+      ></app-crud-post-form>
+ 
+      </li>
+    
+  </ul>
+
+  <ul *ngIf="foundUsersPosts">
+    <li *ngFor="let post of foundUsersPosts">
+      <a routerLink="">{{ post.postTitle }}</a>
+      <p><img class="responsive" [src]="post.photoURL" /></p>
+      <p>{{ post.postText}}</p>
+      <p><strong>Created Date: </strong>{{ post.createdAt}}</p>
+      <p><strong>Created By: </strong>{{ post.username}}</p>
+
+      <p mat-cell>
+        <button (click)="onDeletePost(post._id)" class="btn btn-delete">Delete</button><button (click)="onUpdatePost(post.postTitle, post._id)" class="btn btn-update">Update</button>
+      </p>
+      <app-crud-post-form
+      *ngIf="foundPost && post.postTitle === foundPost.postTitle"
+      [title]="'Update Post'"
+      [postInput]="foundPost"
+      (post)="onUpdate($event)"
+    ></app-crud-post-form>
+    </li>
+  </ul>
+  
+</div>

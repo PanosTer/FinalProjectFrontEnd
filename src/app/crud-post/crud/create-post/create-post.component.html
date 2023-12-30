@@ -1,0 +1,12 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> POST </mat-card-title>
+    <mat-card-subtitle> Create Post</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <app-crud-post-form
+      [title]="'Create Post'"
+      (post)="onPost($event)"
+    ></app-crud-post-form>
+  </mat-card-content>
+</mat-card>

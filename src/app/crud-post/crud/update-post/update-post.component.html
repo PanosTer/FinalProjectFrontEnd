@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> POST </mat-card-title>
+    <mat-card-subtitle> Update post </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="fx-layout-column fx-gap--16px">
+      <app-crud-post-search-criteria
+        (postFound)="onPostFound($event)"
+      ></app-crud-post-search-criteria>
+
+      <app-crud-post-form
+        *ngIf="foundPost"
+        [title]="'Update Post'"
+        [postInput]="foundPost"
+        (post)="onUpdate($event)"
+      ></app-crud-post-form>
+    </div>
+  </mat-card-content>
+</mat-card>

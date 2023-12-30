@@ -1,0 +1,16 @@
+<div class="fx-layout-column fx-gap--16px" style="max-width: 200px">
+  <form [formGroup]="form" class="fx-layout-column">
+    <mat-form-field>
+      <mat-label>Search for Username</mat-label>
+      <input matInput type="text" formControlName="id" />
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="onSearch()" [disabled]="!form.valid" >
+      Search
+    </button>
+  </form>
+  <mat-card *ngIf="form.controls.id.touched && !foundUser" class="error">
+    <mat-card-content class="fx-flex-align--center"
+      >Username not found!</mat-card-content
+    >
+  </mat-card>
+</div>

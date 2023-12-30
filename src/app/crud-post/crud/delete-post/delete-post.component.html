@@ -1,0 +1,38 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> POST </mat-card-title>
+    <mat-card-subtitle> Delete Post </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="fx-layout-column fx-gap--16px">
+      <app-crud-post-search-criteria
+        (postFound)="onPostFound($event)"
+      ></app-crud-post-search-criteria>
+
+      <div *ngIf="foundPost" class="fx-layout-column fx-gap--16px">
+        <mat-card class="example-card" *ngIf="foundPost">
+          <mat-card-header>
+            <div *ngIf="foundPost.photoURL"
+              mat-card-avatar
+              [ngStyle]="{
+                'background-image': 'url(' + foundPost.photoURL + ')',
+                'background-size': 'cover'
+              }"
+            ></div>
+            <mat-card-title
+              >{{ foundPost.postTitle }}</mat-card-title
+            >
+            <mat-card-subtitle>{{ foundPost.postTitle }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>Text: {{ foundPost.postText }}</p>
+            <p>Username: {{ foundPost.username }}</p>
+          </mat-card-content>
+        </mat-card>
+        <app-danger-are-you-sure
+          (confirm)="onConfirm($event)"
+        ></app-danger-are-you-sure>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

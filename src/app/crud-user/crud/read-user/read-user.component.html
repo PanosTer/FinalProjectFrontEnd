@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> USER </mat-card-title>
+    <mat-card-subtitle> Read User </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="fx-layout-column fx-gap--16px">
+      
+      <app-crud-user-search *ngIf="isAdmin$"
+        (userFound)="onUserFound($event)"
+      ></app-crud-user-search>
+
+      <mat-card class="example-card" *ngIf="foundUser">
+        <mat-card-header>
+          <div *ngIf="foundUser.photoURL"
+            mat-card-avatar
+            [ngStyle]="{
+              'background-image': 'url(' + foundUser.photoURL + ')',
+              'background-size': 'cover',
+              'background-repeat':' round'
+            }"
+          ></div>
+          <div *ngIf="!foundUser.photoURL"
+            mat-card-avatar
+          ><mat-icon > account_circle></mat-icon></div>
+          
+          <mat-card-title
+            >{{ foundUser.givenName }} {{ foundUser.surName }}</mat-card-title
+          >
+          <mat-card-subtitle>{{ foundUser.email }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Age: {{ foundUser.age }}</p>
+          <p>Address: {{ foundUser.address }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-card-content>
+</mat-card>
