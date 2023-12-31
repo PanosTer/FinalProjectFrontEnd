@@ -41,6 +41,8 @@
    -password (από .env αρχείο)
    -Authentication DB: postDb
 
+   Επίσης για την είσοδο στην εφαρμογή έχουμε και εκεί έναν χρήστη admin με κωδικό πρόσβασης την μεταβλητή του USER_PASSWORD από το .env αρχείο.
+
    Γνωρίζοντας αυτά σε ένα terminal εκτελούμε τις εντολές με την σειρά:
    a) npm install (ώστε να εγκατασταθούν όλα τα απαραίτητα dependencies)
    b) docker-compose up -d (ώστε να τρέξουμε το docker)
@@ -62,6 +64,10 @@
 3) Swagger
 
 -Το swagger τρέχει στην πόρτα http://localhost:3001/api
+
+4)
+
+- git repository https://github.com/PanosTer/FinalProjectFrontEnd.git
 
 
 
